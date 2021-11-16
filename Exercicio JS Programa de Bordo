@@ -1,0 +1,52 @@
+let nomeNave = prompt("Digite o nome da nave")
+let velocidadeNave = 0
+let escolha
+
+function menu() {
+    let opcoes
+    while (opcoes != "1" && opcoes != "2" && opcoes != "3" && opcoes != "4") {
+        opcoes = prompt("O que deseja fazer?\n" +
+                        "1. Acelerar em 5km/s\n" +
+                        "2. Desacelerar em 5km/s\n" +
+                        "3. Imprimir dados de bordo\n" +
+                        "4. Sair")
+    }
+    return opcoes
+}
+
+function acelerar(velocity) {
+    let novaVelocidade = velocity + 5
+    return novaVelocidade
+}
+
+function desacelerar(velocity) {
+    let novaVelocidade = velocity - 5
+    if(novaVelocidade < 0){
+        novaVelocidade = 0
+    }
+    return novaVelocidade
+}
+
+function dados(nomeNave, velocidadeNave) {
+    alert("Nave: " + nomeNave + "\nVelocidade: " + velocidadeNave + "km/s")
+}
+
+do{
+    escolha = menu()
+    switch(escolha){
+        case "1":
+            velocidadeNave = acelerar(velocidadeNave)
+            break
+
+            case "2":
+            velocidadeNave = desacelerar(velocidadeNave)
+            break
+
+            case "3":
+            dados(nomeNave, velocidadeNave)
+            break
+
+            default:
+                alert("Encerrando o programa de bordo.")
+    }
+}while(escolha != 4)
